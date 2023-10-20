@@ -57,3 +57,72 @@ IconButton.defaultBackgroundColor = .blue
 ```
 
 Now all new `IconButtons` created will have a Blue background.
+
+### Where To Set The Style Changes
+
+For style changes to be in effect, you'll need to make the changes before any `Views` are drawn. You can use the following code on your main app:
+
+```
+import SwiftUI
+import SwiftletUtilities
+import LogManager
+import SwiftUIKit
+
+@main
+struct PackageTesterApp: App {
+    @UIApplicationDelegateAdaptor private var appDelegate: AppDelegate
+    @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.colorScheme) var colorScheme
+    
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+        .onChange(of: scenePhase) { oldScenePhase, newScenePhase in
+            switch newScenePhase {
+            case .active:
+                Debug.info(subsystem: "PackageTesterApp", category: "Scene Phase", "App is active")
+            case .inactive:
+                Debug.info(subsystem: "PackageTesterApp", category: "Scene Phase", "App is inactive")
+            case .background:
+                Debug.info(subsystem: "PackageTesterApp", category: "Scene Phase", "App is in background")
+            @unknown default:
+                Debug.notice(subsystem: "PackageTesterApp", category: "Scene Phase", "App has entered an unexpected scene: \(oldScenePhase), \(newScenePhase)")
+            }
+        }
+    }
+}
+
+/// Class the handle the event that would typically be handled by the Application Delegate so they can be handled in SwiftUI.
+class AppDelegate: NSObject, UIApplicationDelegate {
+    
+    /// Handles the app finishing launching
+    /// - Parameter application: The app that has started.
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+        // Register to receive remote notifications
+        UIApplication.shared.registerForRemoteNotifications()
+    }
+    
+    /// Handle the application getting ready to launch
+    /// - Parameters:
+    ///   - application: The application that is going to launch.
+    ///   - launchOptions: Any options being passed to the application at launch time.
+    /// - Returns: Returns `True` if the application can launch.
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        // Set any `SwiftUIKit` global style defaults here before any `Views` are drawn.
+        // Set style defaults
+        IconButton.defaultBackgroundColor = .blue
+        return true
+    }
+    
+    /// Handles the app receiving a remote notification
+    /// - Parameters:
+    ///   - application: The app receiving the notifications.
+    ///   - userInfo: The info that has been sent to the App.
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any]) {
+        
+    }
+}
+```
+
+With this code in place, make any style changes in `func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool` and they apply to all views built afterwards.
