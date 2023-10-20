@@ -37,6 +37,7 @@ open class AlertTypes: AlertState<AlertTypes.State> {
     
     public static var shared:AlertTypes = AlertTypes()
     
+    // MARK: - Enumerations
     /// A list of the available Alerts that can be displayed in the App
     public enum State {
         /// Display standard alert with an OK button.
@@ -47,6 +48,15 @@ open class AlertTypes: AlertState<AlertTypes.State> {
         
         /// Display an alert with a destructive action and Cancel buttons. Provides an action to take when the user selects the destructive action .
         case showDestructiveAction(title:String, description:String, buttonLabel:String, perform:AlertAction)
+    }
+    
+    // MARK: - Contructors
+    /// Creates a new instance.
+    /// - Parameters:
+    ///   - isShowing: If `true`, the UI needs to display the given alert.
+    ///   - state: The type of alert to display. if `nil`, no sheet should be displayed.
+    public override init(isShowing: Bool = false, state: State? = nil) {
+        super.init(isShowing: isShowing, state: state)
     }
     
     /**

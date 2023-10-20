@@ -40,4 +40,14 @@ open class AlertState<State>: ObservableObject {
     @Published public var state: State? {
         didSet { isShowing = state != nil }
     }
+    
+    // MARK: - Initializers
+    /// Creates a new instance.
+    /// - Parameters:
+    ///   - isShowing: If `true`, the UI needs to display the given alert.
+    ///   - state: The type of alert to display. if `nil`, no sheet should be displayed.
+    public init(isShowing: Bool = false, state: State? = nil) {
+        self.isShowing = isShowing
+        self.state = state
+    }
 }
