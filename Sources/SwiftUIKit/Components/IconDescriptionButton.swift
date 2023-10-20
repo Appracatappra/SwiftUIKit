@@ -90,6 +90,38 @@ public struct IconDescriptionButton: View {
         }
     }
     
+    // MARK: - Initializers
+    /// Creates a new instance of the button.
+    /// - Parameters:
+    ///   - icon: The icon to display on the button.
+    ///   - description: The description to display.
+    ///   - descriptionColor: The color of the description text.
+    ///   - text: The text to display on the button.
+    ///   - backgroundColor: The background color of the button.
+    ///   - textColor: The text color for the button.
+    ///   - borderColor: The border color for the button.
+    ///   - borderWidth: The border color for the button.
+    ///   - size: The size for the button, if you leave it at zero, it will be calculated from the device size.
+    ///   - soundSource: The sound source for the button.
+    ///   - buttonSound: The button clicked sound.
+    ///   - focusSound: The button focused sound.
+    ///   - action: The action to tak when the button is clicked.
+    public init(icon: String, description: String, descriptionColor: Color = .white, text: String, backgroundColor: Color = IconDescriptionButton.defaultBackgroundColor, textColor: Color = .white, borderColor: Color = .white, borderWidth: CGFloat = 5.0, size: CGFloat = 0, soundSource: SwiftUIKit.Source = IconDescriptionButton.defaultSoundSource, buttonSound: String = IconDescriptionButton.defaultButtonSound, focusSound: String = IconDescriptionButton.defaultButtonFocusSound, action: IconButton.buttonAction? = nil) {
+        self.icon = icon
+        self.description = description
+        self.descriptionColor = descriptionColor
+        self.text = text
+        self.backgroundColor = backgroundColor
+        self.textColor = textColor
+        self.borderColor = borderColor
+        self.borderWidth = borderWidth
+        self.size = size
+        self.soundSource = soundSource
+        self.buttonSound = buttonSound
+        self.focusSound = focusSound
+        self.action = action
+    }
+    
     // MARK: - Main Contents
     /// The contents of the button
     public var body: some View {
@@ -106,5 +138,5 @@ public struct IconDescriptionButton: View {
 }
 
 #Preview {
-    IconDescriptionButton()
+    IconDescriptionButton(icon: "globe", description: "This is some sample text", text: "Hello Wordl")
 }

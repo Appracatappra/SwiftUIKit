@@ -108,6 +108,28 @@ public struct OnOffToggleButton: View {
         }
     }
     
+    // MARK: - Initializers
+    /// Creates a new instance of the button.
+    /// - Parameters:
+    ///   - description: The description for  the toggle.
+    ///   - textColor: The text color.
+    ///   - size: The size for the button. If zero, it will be claculated for the device size.
+    ///   - soundSource: The sound source for the button.
+    ///   - buttonSound: The clicked sound for the button.
+    ///   - focusSound: The focused sound for the button.
+    ///   - isOn: The on/off state of the button.
+    ///   - action: The action to take when the button is clicked.
+    public init(description: String, textColor: Color = .white, size: CGFloat = 0, soundSource: SwiftUIKit.Source = OnOffToggleButton.defaultSoundSource, buttonSound: String = OnOffToggleButton.defaultButtonSound, focusSound: String = OnOffToggleButton.defaultButtonFocusSound, isOn: Binding<Bool>, action: buttonAction? = nil) {
+        self.description = description
+        self.textColor = textColor
+        self.size = size
+        self.soundSource = soundSource
+        self.buttonSound = buttonSound
+        self.focusSound = focusSound
+        self._isOn = isOn
+        self.action = action
+    }
+    
     // MARK: - Main Contents
     /// The contents odf the button.
     public var body: some View {
@@ -131,6 +153,5 @@ public struct OnOffToggleButton: View {
 }
 
 #Preview {
-    
-    OnOffToggleButton(isOn: Binding.constant(true))
+    OnOffToggleButton(description: "This is a sample", isOn: Binding.constant(true))
 }

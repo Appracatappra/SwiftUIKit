@@ -27,6 +27,18 @@ public struct ScaledImageView: View {
         return CGFloat(scale)
     }
     
+    // MARK: - Initializers
+    /// Creates a new instance of the control.
+    /// - Parameters:
+    ///   - imageName: he name of the image to display.
+    ///   - scale: The scale to show the image at as a percentage.
+    ///   - ignoreSafeArea: If `true`, the image will ignore the safe area. This is useful to flood a background all the way to the edges of the device.
+    public init(imageName: String, scale: Float = 1.0, ignoreSafeArea: Bool = true) {
+        self.imageName = imageName
+        self.scale = scale
+        self.ignoreSafeArea = ignoreSafeArea
+    }
+    
     // MARK: - Main Contents
     /// The contents of the control.
     public var body: some View {
@@ -59,5 +71,5 @@ public struct ScaledImageView: View {
 }
 
 #Preview {
-    ScaledImageView()
+    ScaledImageView(imageName: "")
 }

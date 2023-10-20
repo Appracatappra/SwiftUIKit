@@ -9,8 +9,6 @@
 import Foundation
 import SwiftUI
 
-
-
 /// The `CircleText` control will display text around a circle in a `SwiftUI View`.
 public struct CircleText: View {
     
@@ -44,6 +42,26 @@ public struct CircleText: View {
     
     /// A dictionary of the text and sizes.
     @State var textSizes: [Int:Double] = [:]
+    
+    // MARK: - Initializers
+    /// Creates a new instance of the control.
+    /// - Parameters:
+    ///   - radius: The radius of the circle to display the text in.
+    ///   - text: The text to display.
+    ///   - width: The width of the box the circle is drawn in.
+    ///   - height: The height of the box the circle is drawn in.
+    ///   - color: The color to draw the text in.
+    ///   - fontSize: The font size to draw the text in.
+    ///   - kerning: The kerning between the text.
+    public init(radius: Double, text: String, width: Float = 300, height: Float = 300, color: Color = .black, fontSize: Int = 16, kerning: CGFloat = 5.0) {
+        self.radius = radius
+        self.text = text
+        self.width = width
+        self.height = height
+        self.color = color
+        self.fontSize = fontSize
+        self.kerning = kerning
+    }
     
     // MARK: - Main Contents
     /// The main contents of the control.
@@ -121,6 +139,13 @@ public struct WidthPreferenceKey: PreferenceKey {
 
 /// Defines the view that can get its contents size.
 public struct Sizeable: View {
+    
+    // MARK: - Initializers
+    /// Creates a new instance of the control.
+    public init() {
+        
+    }
+    
     // MARK: - Main Contents
     /// The contents of the view.
     public var body: some View {

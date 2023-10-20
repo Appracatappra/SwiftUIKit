@@ -89,6 +89,40 @@ public struct SelectIntOptionsButton: View {
         }
     }
     
+    // MARK: - Initializers
+    /// Creates a new instance of the button.
+    /// - Parameters:
+    ///   - icon: The icon for the button.
+    ///   - description: The descriptive text.
+    ///   - descriptionColor: The descriptive text color.
+    ///   - optionText: The text to show for the different options.
+    ///   - optionValue: The values for the different options.
+    ///   - backgroundColor: The background color for the button.
+    ///   - textColor: The text color for the button.
+    ///   - borderColor: The border color for the button.
+    ///   - borderWidth: The border width for the button.
+    ///   - size: The size of the button. If zero, it will be calculated  for the device.
+    ///   - soundSource: The sound source for the button.
+    ///   - buttonSound: The clicked sound for the button.
+    ///   - focusSound: The focused sound for the button.
+    ///   - selectedOption: The index of the currently selected option.
+    public init(icon: String, description: String, descriptionColor: Color = .white, optionText: [String], optionValue: [Int], backgroundColor: Color = SelectIntOptionsButton.defaultBackgroundColor, textColor: Color = .white, borderColor: Color = .white, borderWidth: CGFloat = 5.0, size: CGFloat = 0, soundSource: SwiftUIKit.Source = SelectIntOptionsButton.defaultSoundSource, buttonSound: String = SelectIntOptionsButton.defaultButtonSound, focusSound: String = SelectIntOptionsButton.defaultButtonFocusSound, selectedOption: Binding<Int>) {
+        self.icon = icon
+        self.description = description
+        self.descriptionColor = descriptionColor
+        self.optionText = optionText
+        self.optionValue = optionValue
+        self.backgroundColor = backgroundColor
+        self.textColor = textColor
+        self.borderColor = borderColor
+        self.borderWidth = borderWidth
+        self.size = size
+        self.soundSource = soundSource
+        self.buttonSound = buttonSound
+        self.focusSound = focusSound
+        self._selectedOption = selectedOption
+    }
+    
     // MARK: - Main Contents
     /// The main contents of the control.
     public var body: some View {
@@ -103,5 +137,5 @@ public struct SelectIntOptionsButton: View {
 }
 
 #Preview {
-    SelectIntOptionsButton(selectedOption: Binding.constant(0))
+    SelectIntOptionsButton(icon: "globe", description: "This is a test", optionText: ["Option 1", "Option 2"], optionValue: [0, 1], selectedOption: Binding.constant(0))
 }

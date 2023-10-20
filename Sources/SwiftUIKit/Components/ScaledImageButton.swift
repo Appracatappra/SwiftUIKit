@@ -36,17 +36,17 @@ public struct ScaledImageButton: View {
     /// If `true`, the button is enabled.
     public var isEnabled:Bool = true
     
-    /// The action to take when the button is clicked.
-    public var action:buttonAction? = nil
-    
     /// The sound source for the button.
     public var soundSource:SwiftUIKit.Source = ScaledImageButton.defaultSoundSource
     
     /// The clicked sound for the button.
     public var buttonSound:String = ScaledImageButton.defaultButtonSound
     
-    /// Then focused sound for the button.
+    /// The focused sound for the button.
     public var focusSound:String = ScaledImageButton.defaultButtonFocusSound
+    
+    /// The action to take when the button is clicked.
+    public var action:buttonAction? = nil
     
     /// The focused state for the button.
     @State private var isFocused = false
@@ -65,7 +65,29 @@ public struct ScaledImageButton: View {
         }
     }
     
-    // MARK: -Main Content
+    // MARK: - Initializers
+    /// Creates a new insstance of the button.
+    /// - Parameters:
+    ///   - imageName: The name of the image to display.
+    ///   - scale: The scale for the image button as a percentage.
+    ///   - glowOnFocus: If `true`, apply a glow to the button when it is in focus.
+    ///   - isEnabled: If `true`, the button is enabled.
+    ///   - soundSource: The sound source for the button.
+    ///   - buttonSound: The clicked sound for the button.
+    ///   - focusSound: The focused sound for the button.
+    ///   - action: The action to take when the button is clicked.
+    public init(imageName: String, scale: Float = 1.0, glowOnFocus: Bool = true, isEnabled: Bool = true, soundSource: SwiftUIKit.Source = ScaledImageButton.defaultSoundSource, buttonSound: String = ScaledImageButton.defaultButtonSound, focusSound: String = ScaledImageButton.defaultButtonFocusSound, action: buttonAction? = nil) {
+        self.imageName = imageName
+        self.scale = scale
+        self.glowOnFocus = glowOnFocus
+        self.isEnabled = isEnabled
+        self.action = action
+        self.soundSource = soundSource
+        self.buttonSound = buttonSound
+        self.focusSound = focusSound
+    }
+    
+    // MARK: - Main Content
     /// The contents of the button.
     public var body: some View {
         if !isEnabled {
@@ -129,5 +151,5 @@ public struct ScaledImageButton: View {
 }
 
 #Preview {
-    ScaledImageButton()
+    ScaledImageButton(imageName: "")
 }

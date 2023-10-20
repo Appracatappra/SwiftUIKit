@@ -29,7 +29,7 @@ public struct IconButton: View {
     
     
     // MARK: - Properties
-    /// The isonc to display.
+    /// The icon to display.
     public var icon:String = "globe"
     
     /// The text to display.
@@ -72,6 +72,34 @@ public struct IconButton: View {
         } else {
             return CGFloat(0.0)
         }
+    }
+    
+    // MARK: - Initializers
+    /// Creates a new instance of the button.
+    /// - Parameters:
+    ///   - icon: The icon to display.
+    ///   - text: The text to display.
+    ///   - backgroundColor: The button's background color.
+    ///   - textColor: The button's text color.
+    ///   - borderColor: The button's border Color.
+    ///   - borderWidth: The button's border Width.
+    ///   - size: The font size for the button.
+    ///   - soundSource: The sound source for the button.
+    ///   - buttonSound: The button's clicked sound.
+    ///   - focusSound: The button's focused sound.
+    ///   - action: The action to take when the button is clicked.
+    public init(icon: String, text: String, backgroundColor: Color = IconButton.defaultBackgroundColor, textColor: Color = .white, borderColor: Color = .white, borderWidth: CGFloat = 5.0, size: CGFloat = 24, soundSource: SwiftUIKit.Source = IconButton.defaultSoundSource, buttonSound: String = IconButton.defaultButtonSound, focusSound: String = IconButton.defaultButtonFocusSound, action: buttonAction? = nil) {
+        self.icon = icon
+        self.text = text
+        self.backgroundColor = backgroundColor
+        self.textColor = textColor
+        self.borderColor = borderColor
+        self.borderWidth = borderWidth
+        self.size = size
+        self.soundSource = soundSource
+        self.buttonSound = buttonSound
+        self.focusSound = focusSound
+        self.action = action
     }
     
     // MARK: - Control Body
@@ -158,5 +186,5 @@ public struct IconButton: View {
 }
 
 #Preview {
-    IconButton()
+    IconButton(icon: "globe", text: "Hello World")
 }

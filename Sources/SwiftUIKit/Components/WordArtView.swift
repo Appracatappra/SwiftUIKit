@@ -42,6 +42,28 @@ public struct WordArtView: View {
         return Font.custom(fontName, size: CGFloat(fontSize))
     }
     
+    // MARK: - Initializers
+    /// Creates a new instance of the control.
+    /// - Parameters:
+    ///   - title: The text for the wor art.
+    ///   - fontName: The font to display the text in.
+    ///   - fontSize: The size of the text to display.
+    ///   - gradientColors: The gradient to display the text in.
+    ///   - rotationDegrees: The degrees to rotate the text in.
+    ///   - shadowed: If `true`, display a shadow behind the text.
+    ///   - xOffset: The x offset for the text.
+    ///   - yOffset: The y offset for the text.
+    public init(title: String, fontName: String = "Arial", fontSize: Float = 128, gradientColors: [Color] = [.purple, .blue, .cyan, .green, .yellow, .orange, .red], rotationDegrees: Double = 0.0, shadowed: Bool = true, xOffset: Float = 0.0, yOffset: Float = 0.0) {
+        self.title = title
+        self.fontName = fontName
+        self.fontSize = fontSize
+        self.gradientColors = gradientColors
+        self.rotationDegrees = rotationDegrees
+        self.shadowed = shadowed
+        self.xOffset = xOffset
+        self.yOffset = yOffset
+    }
+    
     // MARK: - Main Contents
     /// The contents of the control.
     public var body: some View {
@@ -68,5 +90,5 @@ public struct WordArtView: View {
 }
 
 #Preview {
-    WordArtView()
+    WordArtView(title: "Hello World")
 }

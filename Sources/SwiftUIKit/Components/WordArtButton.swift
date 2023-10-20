@@ -74,6 +74,36 @@ public struct WordArtButton: View {
         }
     }
     
+    // MARK: - Initializers
+    /// Creates a new instance of the button.
+    /// - Parameters:
+    ///   - title: The text for the wor art.
+    ///   - fontName: The font to display the text in.
+    ///   - fontSize: The size of the text to display.
+    ///   - gradientColors: The gradient to display the text in.
+    ///   - rotationDegrees: The degrees to rotate the text in.
+    ///   - shadowed: If `true`, display a shadow behind the text.
+    ///   - xOffset: The x offset for the text.
+    ///   - yOffset: The y offset for the text.
+    ///   - soundSource: The sound source for the button.
+    ///   - buttonSound: The button's clicked sound.
+    ///   - focusSound: The button's focused sound.
+    ///   - action: The action to take when the button is clicked.
+    public init(title: String, fontName: String = "Arial", fontSize: Float = 128, gradientColors: [Color] = [.purple, .blue, .cyan, .green, .yellow, .orange, .red], rotationDegrees: Double = 0.0, shadowed: Bool = true, xOffset: Float = 0.0, yOffset: Float = 0.0, soundSource: SwiftUIKit.Source = IconButton.defaultSoundSource, buttonSound: String = IconButton.defaultButtonSound, focusSound: String = IconButton.defaultButtonFocusSound, action: buttonAction? = nil) {
+        self.title = title
+        self.fontName = fontName
+        self.fontSize = fontSize
+        self.gradientColors = gradientColors
+        self.rotationDegrees = rotationDegrees
+        self.shadowed = shadowed
+        self.xOffset = xOffset
+        self.yOffset = yOffset
+        self.soundSource = soundSource
+        self.buttonSound = buttonSound
+        self.focusSound = focusSound
+        self.action = action
+    }
+    
     // MARK: - Main Contents
     /// The contents of the button.
     public var body: some View {
@@ -138,5 +168,5 @@ public struct WordArtButton: View {
 }
 
 #Preview {
-    WordArtButton()
+    WordArtButton(title: "Hello World")
 }
