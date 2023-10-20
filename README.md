@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/license-MIT-green) ![](https://img.shields.io/badge/maintained%3F-Yes-green) ![](https://img.shields.io/badge/swift-5.4-green) ![](https://img.shields.io/badge/iOS-13.0-red) ![](https://img.shields.io/badge/macOS-10.15-red) ![](https://img.shields.io/badge/tvOS-13.0-red) ![](https://img.shields.io/badge/watchOS-6.0-red) ![](https://img.shields.io/badge/release-v1.0.8-blue)
 
-`SwiftUIKit` provides a collection of controls for use with `SwiftUI`.
+`SwiftUIKit` provides a collection of common controls for use with `SwiftUI`.
 
 ## Overview
 

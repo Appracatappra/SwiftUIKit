@@ -1,6 +1,6 @@
 # ``SwiftUIKit``
 
-`SwiftUIKit` provides a collection of controls for use with `SwiftUI`.
+`SwiftUIKit` provides a collection of common controls for use with `SwiftUI`.
 
 ## Overview
 
@@ -22,8 +22,13 @@ The `SwiftUIKit` provides a few helper utilities that allow you to easily access
 For example, the following code would return the path to the `diamond-click.mp3` file:
 
 ```
+// Option 1
 let path = SwiftUIKit.pathTo(resource:"diamond-click.mp3")
+
+// Option 2
+let path = SwiftUIKit.pathTo(resource:"diamond-click", ofType: "mp3")
 ```
+
 
 ### Default Control Settings
 

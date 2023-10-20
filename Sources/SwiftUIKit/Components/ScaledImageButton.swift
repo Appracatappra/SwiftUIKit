@@ -9,24 +9,50 @@ import SwiftUI
 import SoundManager
 import SwiftletUtilities
 
+/// `ScaledImageButton` is a `SwiftUI` control that displays the given image as a button. `ScaledImageButton` will work with both tounch based and focus base UIs.
 public struct ScaledImageButton: View {
     public typealias buttonAction = () -> Void
     
+    // MARK: - Static Properties
+    /// The default sound source for the `ScaledImageButton`.
     static public var defaultSoundSource:SwiftUIKit.Source = .packageBundle
+    
+    /// The default clicked sound for the `ScaledImageButton`.
     static public var defaultButtonSound:String = "mouse-click.mp3"
+    
+    /// The default focused sound forr the `ScaledImageButton`.
     static public var defaultButtonFocusSound:String = "diamond-click.mp3"
     
+    // MARK: - Properties
+    /// The name of the image to display.
     public var imageName = ""
+    
+    /// The scale for the image button as a percentage.
     public var scale:Float = 1.0
+    
+    /// If `true`, apply a glow to the button when it is in focus.
     public var glowOnFocus:Bool = true
+    
+    /// If `true`, the button is enabled.
     public var isEnabled:Bool = true
+    
+    /// The action to take when the button is clicked.
     public var action:buttonAction? = nil
+    
+    /// The sound source for the button.
     public var soundSource:SwiftUIKit.Source = ScaledImageButton.defaultSoundSource
+    
+    /// The clicked sound for the button.
     public var buttonSound:String = ScaledImageButton.defaultButtonSound
+    
+    /// Then focused sound for the button.
     public var focusSound:String = ScaledImageButton.defaultButtonFocusSound
     
+    /// The focused state for the button.
     @State private var isFocused = false
     
+    // MARK: - Computed Properties
+    /// The glow radius for the button.
     public var glowRadius:CGFloat {
         if isFocused {
             if glowOnFocus {
@@ -39,6 +65,8 @@ public struct ScaledImageButton: View {
         }
     }
     
+    // MARK: -Main Content
+    /// The contents of the button.
     public var body: some View {
         if !isEnabled {
             ScaledImageView(imageName: imageName, scale: scale)

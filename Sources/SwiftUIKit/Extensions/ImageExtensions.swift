@@ -8,8 +8,11 @@
 import Foundation
 import SwiftUI
 
-extension Image {
+public extension Image {
+    
     // MARK: - Initializers
+    /// Fetches an image from the path to an item in a Swift Package Bundle.
+    /// - Parameter path: The path to the item to load.
     init(path:String?) {
         
         guard let path else {
