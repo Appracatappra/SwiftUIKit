@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Appracatappra/LogManager",
       "state" : {
-        "revision" : "5dc038a098c8646e19f87424907e08b74809d06c",
-        "version" : "1.0.1"
+        "revision" : "aa1c1a9d15ea104a590df766af3f81da5afabab7",
+        "version" : "1.0.2"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/Appracatappra/SwiftletUtilities",
       "state" : {
-        "revision" : "69be87fb6a5a2efb984fe67fa6cc3708abaacbdb",
-        "version" : "1.1.4"
+        "revision" : "7cc84ffb53bc9886b51c0bf2de3d308dd64a71cd",
+        "version" : "1.1.7"
       }
     }
   ],
