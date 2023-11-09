@@ -10,16 +10,20 @@ import SwiftletUtilities
 
 /// A zoomable, scrollable container for the given content.
 public struct ZoomView<Content: View>: View {
+    public typealias ZoomChangeHandler = (Double) -> Void
     
     // MARK: - Properties
     /// The minimum zoom level.
-    public var minimumZoom = 0.1
+    public var minimumZoom:Double = 0.1
     
     /// The maximum zoom level.
-    public var maximumZoom = 2.0
+    public var maximumZoom:Double = 2.0
     
     /// The plus or miinus zoom step.
-    public var zoomStep = 0.10
+    public var zoomStep:Double = 0.10
+    
+    /// The initial zoom level.
+    public var initialZoom:Double = 1.0
     
     /// If `true`, show the zoom controls over the content.
     public var showZoomControls = true
@@ -27,15 +31,18 @@ public struct ZoomView<Content: View>: View {
     /// The size of the zoom control buttons
     public var buttonSize:CGFloat = 24
     
+    /// Handles the zoom level being changed by the user
+    public var zoomChangedHandler:ZoomChangeHandler? = nil
+    
     /// The contents to scroll and zoom.
     @ViewBuilder public var content: Content
     
     // MARK: - States
     /// The amount that the zoom level is being adjusted.
-    @State private var totalZoom = 1.0
+    @State private var totalZoom:Double = 1.0
     
     /// The current zoom level.
-    @State private var currentZoom = 0.0
+    @State private var currentZoom:Double = 0.0
     
     // MARK: - Constructors
     /// Creates a new instance of the control
@@ -46,12 +53,13 @@ public struct ZoomView<Content: View>: View {
     ///   - showZoomControls: If `true`, show the zoom controls over the content.
     ///   - buttonSize: The size of the zoom control buttons
     ///   - content: The contents to scroll and zoom.
-    public init(minimumZoom: Double = 0.1, maximumZoom: Double = 2.0, zoomStep: Double = 0.10, showZoomControls: Bool = true, buttonSize: CGFloat = 24, @ViewBuilder content: @escaping () -> Content) {
+    public init(minimumZoom: Double = 0.1, maximumZoom: Double = 2.0, zoomStep: Double = 0.10, showZoomControls: Bool = true, buttonSize: CGFloat = 24, zoomChangedHandler:ZoomChangeHandler? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.minimumZoom = minimumZoom
         self.maximumZoom = maximumZoom
         self.zoomStep = zoomStep
         self.showZoomControls = showZoomControls
         self.buttonSize = buttonSize
+        self.zoomChangedHandler = zoomChangedHandler
         self.content = content()
     }
     
@@ -82,6 +90,10 @@ public struct ZoomView<Content: View>: View {
                             .onEnded { value in
                                 totalZoom += currentZoom
                                 currentZoom = 0
+                                
+                                if let zoomChangedHandler {
+                                    zoomChangedHandler(totalZoom)
+                                }
                             }
                     )
                 #endif
@@ -97,17 +109,26 @@ public struct ZoomView<Content: View>: View {
                             currentZoom = 0
                             if totalZoom > minimumZoom {
                                 totalZoom -= zoomStep
+                                if let zoomChangedHandler {
+                                    zoomChangedHandler(totalZoom)
+                                }
                             }
                         }
                         
                         IconButton(icon: "magnifyingglass", text: "", borderWidth: 2, size: buttonSize) {
                             totalZoom = 1.0
+                            if let zoomChangedHandler {
+                                zoomChangedHandler(totalZoom)
+                            }
                         }
                         
                         IconButton(icon: "plus.magnifyingglass", text: "", borderWidth: 2, size: buttonSize) {
                             currentZoom = 0
                             if totalZoom < maximumZoom {
                                 totalZoom += zoomStep
+                                if let zoomChangedHandler {
+                                    zoomChangedHandler(totalZoom)
+                                }
                             }
                         }
                     }
@@ -116,6 +137,9 @@ public struct ZoomView<Content: View>: View {
                     Spacer()
                 }
             }
+        }
+        .onAppear {
+            totalZoom = initialZoom
         }
     }
 }
