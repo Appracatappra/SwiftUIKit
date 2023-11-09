@@ -31,7 +31,7 @@ public struct ZoomView<Content: View>: View {
     /// The size of the zoom control buttons
     public var buttonSize:CGFloat = 24
     
-    /// Handles the zoom level being changed by the user
+    /// Handles the zoom level being changed by the user.
     public var zoomChangedHandler:ZoomChangeHandler? = nil
     
     /// The contents to scroll and zoom.
@@ -53,10 +53,13 @@ public struct ZoomView<Content: View>: View {
     ///   - showZoomControls: If `true`, show the zoom controls over the content.
     ///   - buttonSize: The size of the zoom control buttons
     ///   - content: The contents to scroll and zoom.
-    public init(minimumZoom: Double = 0.1, maximumZoom: Double = 2.0, zoomStep: Double = 0.10, showZoomControls: Bool = true, buttonSize: CGFloat = 24, zoomChangedHandler:ZoomChangeHandler? = nil, @ViewBuilder content: @escaping () -> Content) {
+    ///   - initialZoom: The initial zoom level.
+    ///   - zoomChangedHandler: Handles the zoom level being changed by the user.
+    public init(minimumZoom: Double = 0.1, maximumZoom: Double = 2.0, zoomStep: Double = 0.10, initialZoom: Double = 0.10, showZoomControls: Bool = true, buttonSize: CGFloat = 24, zoomChangedHandler:ZoomChangeHandler? = nil, @ViewBuilder content: @escaping () -> Content) {
         self.minimumZoom = minimumZoom
         self.maximumZoom = maximumZoom
         self.zoomStep = zoomStep
+        self.initialZoom = initialZoom
         self.showZoomControls = showZoomControls
         self.buttonSize = buttonSize
         self.zoomChangedHandler = zoomChangedHandler
