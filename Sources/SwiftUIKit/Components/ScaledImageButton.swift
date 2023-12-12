@@ -9,7 +9,7 @@ import SwiftUI
 import SoundManager
 import SwiftletUtilities
 
-/// `ScaledImageButton` is a `SwiftUI` control that displays the given image as a button. `ScaledImageButton` will work with both tounch based and focus base UIs.
+/// `ScaledImageButton` is a `SwiftUI` control that displays the given image as a button. `ScaledImageButton` will work with both touch based and focus base UIs.
 public struct ScaledImageButton: View {
     public typealias buttonAction = () -> Void
     

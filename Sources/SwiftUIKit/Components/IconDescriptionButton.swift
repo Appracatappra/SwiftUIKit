@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftletUtilities
 
-/// `IconDescriptionButton` is a `SwiftUI` control that is displayed as a rounded edge Button with a border and icon along with a description block of text. The `IconDescriptionButton` make great user preference controls and will work with both tounch based and focus base UIs.
+/// `IconDescriptionButton` is a `SwiftUI` control that is displayed as a rounded edge Button with a border and icon along with a description block of text. The `IconDescriptionButton` make great user preference controls and will work with both touch based and focus base UIs.
 public struct IconDescriptionButton: View {
     
     // MARK: - Static Properties

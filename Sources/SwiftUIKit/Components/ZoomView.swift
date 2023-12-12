@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftletUtilities
 
-/// A zoomable, scrollable container for the given content.
+/// `ZoomView` A zoomable, scrollable container for the given SwiftUI content. It provides buttons to zoom in & out and to return to the default zoom level.
 public struct ZoomView<Content: View>: View {
     public typealias ZoomChangeHandler = (Double) -> Void
     

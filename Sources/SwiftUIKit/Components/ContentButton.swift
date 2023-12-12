@@ -9,6 +9,7 @@ import SwiftUI
 import SoundManager
 import SwiftletUtilities
 
+/// A `ContentButton` is a special type of SwiftUI `button` that works and lays out the same way on tvOS devices as it does on mobile devices.
 public struct ContentButton<Content: View>: View {
     /// The action that will be taken with the button is clicked.
     public typealias buttonAction = () -> Void

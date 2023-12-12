@@ -9,7 +9,7 @@ import SwiftUI
 import SoundManager
 import SwiftletUtilities
 
-/// `OnOffToggleButton` is a `SwiftUI` control that is displayed as a rounded edge Button with a border and icon. `OnOffToggleButton` will flip between the on and off states when clicked and works with both tounch based and focus base UIs.
+/// `OnOffToggleButton` is a `SwiftUI` control that is displayed as a rounded edge Button with a border and icon. `OnOffToggleButton` will flip between the on and off states when clicked and works with both touch based and focus base UIs.
 public struct OnOffToggleButton: View {
     public typealias buttonAction = (Bool) -> Void
     

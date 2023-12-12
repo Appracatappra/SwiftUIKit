@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftletUtilities
 
-/// `SelectIntOptionsButton` is a `SwiftUI` control that is displayed as a rounded edge Button with a border, icon and descriptive text block. When clicked, the `SelectIntOptionsButton` will cycle through the list of options provided. `SelectIntOptionsButton` will work with both tounch based and focus base UIs and makes a great user preference control..
+/// `SelectIntOptionsButton` is a `SwiftUI` control that is displayed as a rounded edge Button with a border, icon and descriptive text block. When clicked, the `SelectIntOptionsButton` will cycle through the list of options provided. `SelectIntOptionsButton` will work with both touch based and focus base UIs and makes a great user preference control.
 public struct SelectIntOptionsButton: View {
     
     // MARK: - Static Properties

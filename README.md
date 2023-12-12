@@ -1,12 +1,38 @@
 # SwiftUIKit
 
-![](https://img.shields.io/badge/license-MIT-green) ![](https://img.shields.io/badge/maintained%3F-Yes-green) ![](https://img.shields.io/badge/swift-5.4-green) ![](https://img.shields.io/badge/iOS-13.0-red) ![](https://img.shields.io/badge/macOS-10.15-red) ![](https://img.shields.io/badge/tvOS-13.0-red) ![](https://img.shields.io/badge/watchOS-6.0-red) ![](https://img.shields.io/badge/release-v1.0.8-blue)
+![](https://img.shields.io/badge/license-MIT-green) ![](https://img.shields.io/badge/maintained%3F-Yes-green) ![](https://img.shields.io/badge/swift-5.4-green) ![](https://img.shields.io/badge/iOS-17.0-red) ![](https://img.shields.io/badge/macOS-14.0-red) ![](https://img.shields.io/badge/tvOS-17.0-red) ![](https://img.shields.io/badge/watchOS-10.0-red) ![](https://img.shields.io/badge/dependency-LogManager-orange) ![](https://img.shields.io/badge/dependency-SoundManager-orange) ![](https://img.shields.io/badge/dependency-SwiftletUtilities-orange)
 
 `SwiftUIKit` provides a collection of common controls for use with `SwiftUI`.
 
+## Installation
+
+**Swift Package Manager** (Xcode 11 and above)
+
+1. In Xcode, select the **File** > **Add Package Dependency…** menu item.
+2. Paste `https://github.com/Appracatappra/SwiftUIKit.git` in the dialog box.
+3. Follow the Xcode's instruction to complete the installation.
+
+> Why not CocoaPods, or Carthage, or etc?
+
+Supporting multiple dependency managers makes maintaining a library exponentially more complicated and time consuming.
+
+Since, the **Swift Package Manager** is integrated with Xcode 11 (and greater), it's the easiest choice to support going further.
+
 ## Overview
 
-`SwiftUIKit` provides a simply way to display alerts in your `SwiftUI Views` and several useful new controls.
+`SwiftUIKit` provides a simply way to display alerts in your `SwiftUI Views` and several useful new controls including:
+
+* **CircleText** - The `CircleText` control will display text around a circle in a `SwiftUI View`.
+* **ContentButton** - A `ContentButton` is a special type of SwiftUI `button` that works and lays out the same way on tvOS devices as it does on mobile devices.
+* **IconButton** - `IconButton` is a `SwiftUI` control that is displayed as a rounded edge Button with a border and icon. `IconButton` will work with both touch based and focus base UIs.
+* **IconDescriptionButton** - `IconDescriptionButton` is a `SwiftUI` control that is displayed as a rounded edge Button with a border and icon along with a description block of text. The `IconDescriptionButton` make great user preference controls and will work with both touch based and focus base UIs.
+* **OnOffToggleButton** - `OnOffToggleButton` is a `SwiftUI` control that is displayed as a rounded edge Button with a border and icon. `OnOffToggleButton` will flip between the on and off states when clicked and works with both touch based and focus base UIs.
+* **ScaledImageButton** - `ScaledImageButton` is a `SwiftUI` control that displays the given image as a button. `ScaledImageButton` will work with both touch based and focus base UIs.
+* **ScaledImageView** - `ScaledImageView` is a `SwiftUI` control that displays an image in a `SwiftUI View` scaled to a give ratio. The image is scaled directly from the disk storage so that it takes less actual memory in the device.
+* **SelectIntOptionsButton** - `SelectIntOptionsButton` is a `SwiftUI` control that is displayed as a rounded edge Button with a border, icon and descriptive text block. When clicked, the `SelectIntOptionsButton` will cycle through the list of options provided. `SelectIntOptionsButton` will work with both touch based and focus base UIs and makes a great user preference control.
+* **WordArtButton** - `WordArtButton` is a `SwiftUI` control that is displayed as interactable Word Art. `WordArtButton` will work with both touch based and focus base UIs.
+* **WordArtView** - `WordArtView` displays text in the given font at the given size and rotation with the defined gradient.
+* **ZoomView** - `ZoomView` A zoomable, scrollable container for the given SwiftUI content. It provides buttons to zoom in & out and to return to the default zoom level.
 
 ### Embedded Sounds
 
@@ -123,3 +149,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 ```
 
 With this code in place, make any style changes in `func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool` and they apply to all views built afterwards.
+
+# Documentation
+
+The **Package** includes full **DocC Documentation** for all of Grace's features.

@@ -9,7 +9,7 @@ import SwiftUI
 import SoundManager
 import SwiftletUtilities
 
-/// `IconButton` is a `SwiftUI` control that is displayed as a rounded edge Button with a border and icon. `IconButton` will work with both tounch based and focus base UIs.
+/// `IconButton` is a `SwiftUI` control that is displayed as a rounded edge Button with a border and icon. `IconButton` will work with both touch based and focus base UIs.
 public struct IconButton: View {
     /// The action that will be taken with the button is clicked.
     public typealias buttonAction = () -> Void

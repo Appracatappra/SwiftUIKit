@@ -9,7 +9,7 @@ import SwiftUI
 import SoundManager
 import SwiftletUtilities
 
-/// `WordArtButton` is a `SwiftUI` control that is displayed as interactable Word Art. `WordArtButton` will work with both tounch based and focus base UIs.
+/// `WordArtButton` is a `SwiftUI` control that is displayed as interactable Word Art. `WordArtButton` will work with both touch based and focus base UIs.
 public struct WordArtButton: View {
     /// The action that will be taken with the button is clicked.
     public typealias buttonAction = () -> Void
