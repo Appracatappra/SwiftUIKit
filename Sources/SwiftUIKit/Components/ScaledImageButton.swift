@@ -27,6 +27,10 @@ public struct ScaledImageButton: View {
     /// The name of the image to display.
     public var imageName = ""
     
+    /// The optional URL to an image, if not `nil` this will override the `imageName` property.
+    /// - Remark: This property is being used to support images stored in a Swift Package bundle.
+    public var imageURL:URL? = nil
+    
     /// The scale for the image button as a percentage.
     public var scale:Float = 1.0
     
@@ -69,6 +73,7 @@ public struct ScaledImageButton: View {
     /// Creates a new insstance of the button.
     /// - Parameters:
     ///   - imageName: The name of the image to display.
+    ///   - imageURL: A `URL` representing the souce of an image.
     ///   - scale: The scale for the image button as a percentage.
     ///   - glowOnFocus: If `true`, apply a glow to the button when it is in focus.
     ///   - isEnabled: If `true`, the button is enabled.
@@ -76,8 +81,9 @@ public struct ScaledImageButton: View {
     ///   - buttonSound: The clicked sound for the button.
     ///   - focusSound: The focused sound for the button.
     ///   - action: The action to take when the button is clicked.
-    public init(imageName: String, scale: Float = 1.0, glowOnFocus: Bool = true, isEnabled: Bool = true, soundSource: SwiftUIKit.Source = ScaledImageButton.defaultSoundSource, buttonSound: String = ScaledImageButton.defaultButtonSound, focusSound: String = ScaledImageButton.defaultButtonFocusSound, action: buttonAction? = nil) {
+    public init(imageName: String = "", imageURL:URL? = nil, scale: Float = 1.0, glowOnFocus: Bool = true, isEnabled: Bool = true, soundSource: SwiftUIKit.Source = ScaledImageButton.defaultSoundSource, buttonSound: String = ScaledImageButton.defaultButtonSound, focusSound: String = ScaledImageButton.defaultButtonFocusSound, action: buttonAction? = nil) {
         self.imageName = imageName
+        self.imageURL = imageURL
         self.scale = scale
         self.glowOnFocus = glowOnFocus
         self.isEnabled = isEnabled
@@ -91,11 +97,11 @@ public struct ScaledImageButton: View {
     /// The contents of the button.
     public var body: some View {
         if !isEnabled {
-            ScaledImageView(imageName: imageName, scale: scale)
+            ScaledImageView(imageName: imageName, imageURL: imageURL, scale: scale)
                 .opacity(0.50)
         } else {
             #if os(tvOS)
-            ScaledImageView(imageName: imageName, scale: scale)
+            ScaledImageView(imageName: imageName, imageURL: imageURL, scale: scale)
                 .scaleEffect(isFocused ? CGFloat(1.2) : CGFloat(1.0))
                 .focusable(true) { newState in
                     isFocused = newState
@@ -143,7 +149,7 @@ public struct ScaledImageButton: View {
                     }
                 }
             }) {
-                ScaledImageView(imageName: imageName, scale: scale)
+                ScaledImageView(imageName: imageName, imageURL: imageURL, scale: scale)
             }
             #endif
         }

@@ -6,7 +6,10 @@
 //
 
 import SwiftUI
+
+#if !os(macOS)
 import UIKit
+#endif
 
 /// `WordArtView` displays text in the given font at the given size and rotation with the defined gradient.
 public struct WordArtView: View {
