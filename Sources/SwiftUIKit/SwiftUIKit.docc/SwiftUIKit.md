@@ -17,6 +17,7 @@
 * **WordArtButton** - `WordArtButton` is a `SwiftUI` control that is displayed as interactable Word Art. `WordArtButton` will work with both touch based and focus base UIs.
 * **WordArtView** - `WordArtView` displays text in the given font at the given size and rotation with the defined gradient.
 * **ZoomView** - `ZoomView` A zoomable, scrollable container for the given SwiftUI content. It provides buttons to zoom in & out and to return to the default zoom level.
+* **ScaleableWaitingIndicator** - A View that displays an animated waiting indicator that can be scaled to any size desired.
 
 ### Embedded Sounds
 
