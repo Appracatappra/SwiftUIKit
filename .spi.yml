@@ -1,0 +1,12 @@
+version: 1
+builder:
+  configs:
+  - platform: ios
+    scheme: SwiftUIKit
+  - platform: macos-xcodebuild
+    scheme: SwiftUIKit
+  - platform: tvos
+    scheme: SwiftUIKit
+  - platform: watchos
+    scheme: SwiftUIKit
+  - documentation_targets: [SwiftUIKit]
