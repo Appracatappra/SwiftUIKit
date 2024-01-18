@@ -7,39 +7,40 @@
 
 import Foundation
 import SwiftUI
+import LogManager
 
 /// Provides storage for my wrapped value
-class ValueStorage<T> {
+open class ValueStorage<T> {
     
     /// The value being stored
-    var storedValue:T? = nil
+    public var storedValue:T? = nil
 
 }
 
 /// Creates a property that can be mutated in a SwiftUI view without kicking off a state change.
-@propertyWrapper struct MutableValue<T> {
+@propertyWrapper public struct MutableValue<T> {
     /// Provides storage for the mutating value
     private let storage:ValueStorage = ValueStorage<T>()
     private let name:String
     
     /// The value being wrapped.
-    var wrappedValue:T {
+    public var wrappedValue:T {
         get {
             if name != "" {
-                print("Fetching \(name): \(storage.storedValue!)")
+                Debug.log("Fetching \(name): \(storage.storedValue!)")
             }
             return storage.storedValue!
         }
         nonmutating set {
             storage.storedValue = newValue
             if name != "" {
-                print("Setting \(name): \(storage.storedValue!)")
+                Debug.log("Setting \(name): \(storage.storedValue!)")
             }
         }
     }
     
     // The value can be bound to SwiftUI
-    var projectedValue: Binding<T> {
+    public var projectedValue: Binding<T> {
         Binding(
             get: { wrappedValue },
             set: { wrappedValue = $0 }
@@ -49,11 +50,11 @@ class ValueStorage<T> {
     // Initializers
     /// Initializes the mutating value.
     /// - Parameter wrappedValue: The initial value for the property.
-    init(wrappedValue:T, name:String = "") {
+    public init(wrappedValue:T, name:String = "") {
         self.storage.storedValue = wrappedValue
         self.name = name
         if name != "" {
-            print("Initializing \(name): \(wrappedValue)")
+            Debug.log("Initializing \(name): \(wrappedValue)")
         }
     }
 }
