@@ -20,16 +20,16 @@ public struct TouchLocatingView: UIViewRepresentable {
         
         // MARK: - Static Properties
         /// Has the touch started?
-        public static let started = TouchType(rawValue: 1 << 0)
+        public nonisolated(unsafe) static let started = TouchType(rawValue: 1 << 0)
         
         /// Has the touch moved?
-        public static let moved = TouchType(rawValue: 1 << 1)
+        public nonisolated(unsafe) static let moved = TouchType(rawValue: 1 << 1)
         
         /// Has the Touch Ended?
-        public static let ended = TouchType(rawValue: 1 << 2)
+        public nonisolated(unsafe) static let ended = TouchType(rawValue: 1 << 2)
         
         /// Holds all of the different touch types.
-        public static let all: TouchType = [.started, .moved, .ended]
+        public nonisolated(unsafe) static let all: TouchType = [.started, .moved, .ended]
         
         // MARK: - Properties
         /// The raw `Int` value.

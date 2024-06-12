@@ -35,7 +35,7 @@ open class AlertTypes: AlertState<AlertTypes.State> {
     /// Defines a type alias returned from a call to a CloudKit database function.
     public typealias AlertAction = () -> Void
     
-    public static var shared:AlertTypes = AlertTypes()
+    public nonisolated(unsafe) static var shared:AlertTypes = AlertTypes()
     
     // MARK: - Enumerations
     /// A list of the available Alerts that can be displayed in the App

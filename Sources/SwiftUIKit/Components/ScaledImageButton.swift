@@ -15,13 +15,13 @@ public struct ScaledImageButton: View {
     
     // MARK: - Static Properties
     /// The default sound source for the `ScaledImageButton`.
-    static public var defaultSoundSource:SwiftUIKit.Source = .packageBundle
+    static public nonisolated(unsafe) var defaultSoundSource:SwiftUIKit.Source = .packageBundle
     
     /// The default clicked sound for the `ScaledImageButton`.
-    static public var defaultButtonSound:String = "mouse-click.mp3"
+    static public nonisolated(unsafe) var defaultButtonSound:String = "mouse-click.mp3"
     
     /// The default focused sound forr the `ScaledImageButton`.
-    static public var defaultButtonFocusSound:String = "diamond-click.mp3"
+    static public nonisolated(unsafe) var defaultButtonFocusSound:String = "diamond-click.mp3"
     
     // MARK: - Properties
     /// The name of the image to display.

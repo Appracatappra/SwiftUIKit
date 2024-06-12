@@ -125,7 +125,7 @@ public struct WidthPreferenceKey: PreferenceKey {
     
     // MARK: - Properties
     /// The default value.
-    public static var defaultValue = CGFloat(0)
+    public nonisolated(unsafe) static var defaultValue = CGFloat(0)
     
     // MARK: - Computed Pproperties
     /// Reduces the given value.

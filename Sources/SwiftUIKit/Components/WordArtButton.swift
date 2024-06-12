@@ -16,13 +16,13 @@ public struct WordArtButton: View {
     
     // MARK: - Static Properties
     /// The default sound source for the `IconButton`.
-    static public var defaultSoundSource:SwiftUIKit.Source = .packageBundle
+    static public nonisolated(unsafe) var defaultSoundSource:SwiftUIKit.Source = .packageBundle
     
     /// The default button clicked sound `IconButton`.
-    static public var defaultButtonSound:String = "mouse-click.mp3"
+    static public nonisolated(unsafe) var defaultButtonSound:String = "mouse-click.mp3"
     
     /// The default focused sound for the `IconButton`.
-    static public var defaultButtonFocusSound:String = "diamond-click.mp3"
+    static public nonisolated(unsafe) var defaultButtonFocusSound:String = "diamond-click.mp3"
     
     // MARK: - Properties
     /// The text for the wor art.

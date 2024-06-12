@@ -15,19 +15,19 @@ public struct OnOffToggleButton: View {
     
     // MARK: - Static Properties
     /// The default on background color for the `OnOffToggleButton`.
-    static public var defaultOnBackgroundColor:Color = .green
+    static public nonisolated(unsafe) var defaultOnBackgroundColor:Color = .green
     
     /// The default off background color for the `OnOffToggleButton`.
-    static public var defaultOffBackgroundColor:Color = .red
+    static public nonisolated(unsafe) var defaultOffBackgroundColor:Color = .red
     
     /// The default sound source for the `OnOffToggleButton`.
-    static public var defaultSoundSource:SwiftUIKit.Source = .packageBundle
+    static public nonisolated(unsafe) var defaultSoundSource:SwiftUIKit.Source = .packageBundle
     
     /// The default clicked sound for the `OnOffToggleButton`.
-    static public var defaultButtonSound:String = "mouse-click.mp3"
+    static public nonisolated(unsafe) var defaultButtonSound:String = "mouse-click.mp3"
     
     /// The default focused sound for the `OnOffToggleButton`.
-    static public var defaultButtonFocusSound:String = "diamond-click.mp3"
+    static public nonisolated(unsafe) var defaultButtonFocusSound:String = "diamond-click.mp3"
     
     // MARK: - Properties
     /// The description for  the toggle.

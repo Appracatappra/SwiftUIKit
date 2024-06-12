@@ -13,16 +13,16 @@ public struct SelectIntOptionsButton: View {
     
     // MARK: - Static Properties
     /// The default background color for the `SelectIntOptionsButton`.
-    static public var defaultBackgroundColor:Color = .gray
+    static public nonisolated(unsafe) var defaultBackgroundColor:Color = .gray
     
     /// The default sound source for the `SelectIntOptionsButton`.
-    static public var defaultSoundSource:SwiftUIKit.Source = .packageBundle
+    static public nonisolated(unsafe) var defaultSoundSource:SwiftUIKit.Source = .packageBundle
     
     /// The default clicked sound for the`SelectIntOptionsButton`.
-    static public var defaultButtonSound:String = "mouse-click.mp3"
+    static public nonisolated(unsafe) var defaultButtonSound:String = "mouse-click.mp3"
     
     /// The default focused sound for the `SelectIntOptionsButton`.
-    static public var defaultButtonFocusSound:String = "diamond-click.mp3"
+    static public nonisolated(unsafe) var defaultButtonFocusSound:String = "diamond-click.mp3"
     
     // MARK: - Properties
     /// The icon for the button.

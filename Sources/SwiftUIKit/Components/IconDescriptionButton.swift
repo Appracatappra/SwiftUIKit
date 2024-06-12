@@ -13,16 +13,16 @@ public struct IconDescriptionButton: View {
     
     // MARK: - Static Properties
     /// The default background color for the `IconDescriptionButton`.
-    static public var defaultBackgroundColor:Color = .gray
+    static public nonisolated(unsafe) var defaultBackgroundColor:Color = .gray
     
     /// The default sound source for the `IconDescriptionButton`.
-    static public var defaultSoundSource:SwiftUIKit.Source = .packageBundle
+    static public nonisolated(unsafe) var defaultSoundSource:SwiftUIKit.Source = .packageBundle
     
     /// The default button clicked sound for the `IconDescriptionButton`.
-    static public var defaultButtonSound:String = "mouse-click.mp3"
+    static public nonisolated(unsafe) var defaultButtonSound:String = "mouse-click.mp3"
     
     /// The defaut button focused sound for the `IconDescriptionButton`.
-    static public var defaultButtonFocusSound:String = "diamond-click.mp3"
+    static public nonisolated(unsafe) var defaultButtonFocusSound:String = "diamond-click.mp3"
     
     // MARK: - Properties
     /// The icon to display on the button.
