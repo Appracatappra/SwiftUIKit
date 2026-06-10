@@ -4,7 +4,7 @@
 //
 //  Created by Kevin Mullins on 11/8/23.
 //
-
+#if !os(watchOS)
 import SwiftUI
 import SwiftletUtilities
 
@@ -153,3 +153,4 @@ public struct ZoomView<Content: View>: View {
        .font(.largeTitle)
     }
 }
+#endif

@@ -6,7 +6,7 @@
 //  Based on: https://www.hackingwithswift.com/quick-start/swiftui/how-to-detect-the-location-of-a-tap-inside-a-view
 //
 
-#if canImport(UIKit)
+#if canImport(UIKit) && !os(watchOS)    
 import Foundation
 import UIKit
 import SwiftUI

@@ -38,8 +38,10 @@ open class SwiftUITimer {
     // MARK: - Functions
     /// Starts the timer.
     public func start() {
-        timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) {timer in
-            if let onTick = self.onTick {
+        nonisolated(unsafe) let onTick = onTick
+        
+        timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { _ in
+            if let onTick = onTick {
                 Execute.onMain {
                     onTick()
                 }

@@ -60,7 +60,7 @@ public struct OnOffToggleButton: View {
         if size > 0 {
             return size
         } else {
-            #if os(macOS)
+            #if os(macOS) || os(watchOS)
             return 24
             #else
             switch HardwareInformation.screenHeight {

@@ -56,6 +56,14 @@ public struct ScaledImageView: View {
             let sourceImage = NSImage.asset(named: imageName, atScale: imageScale)
             contents(sourceImage: sourceImage)
         }
+        #elseif os(watchOS)
+        if let imageURL {
+            let sourceImage = UIImage(contentsOfFile: imageURL.path)
+            contents(sourceImage: sourceImage)
+        } else {
+            let sourceImage = UIImage(named: imageName)
+            contents(sourceImage: sourceImage)
+        }
         #else
         if let imageURL {
             let sourceImage = UIImage.scaledImage(bundleURL: imageURL, scale: imageScale)

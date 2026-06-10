@@ -18,7 +18,7 @@ open class ValueStorage<T> {
 }
 
 /// Creates a property that can be mutated in a SwiftUI view without kicking off a state change.
-@propertyWrapper public struct MutableValue<T> {
+@propertyWrapper public struct MutableValue<T>: @unchecked Sendable {
     /// Provides storage for the mutating value
     private let storage:ValueStorage = ValueStorage<T>()
     private let name:String
